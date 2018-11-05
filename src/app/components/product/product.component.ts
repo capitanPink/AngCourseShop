@@ -1,12 +1,12 @@
 import { Category } from './../../shared/enums/category.enum';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
 
   @Input() name: string;
   @Input() description: string;
@@ -15,8 +15,5 @@ export class ProductComponent implements OnInit {
   @Input() isAvailable: boolean;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

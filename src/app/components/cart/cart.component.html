@@ -1,3 +1,20 @@
-<p>
-  cart works!
-</p>
+<div *ngIf="products.length; then template1; else emptyCart"></div>
+
+<ng-template #template1>
+        <ul class="cart list-style--none"
+        *ngIf="products.length">
+        <li *ngFor="let product of products"
+            class="cart-list-item">
+            <app-cart-item [name]="product.name"
+                         [price]="product.price"
+                         [description]="product.description"
+                         [category]="product.category"
+                         [isAvailable]="product.isAvailable"
+            >
+            </app-cart-item>
+        </li>
+    </ul>
+</ng-template>
+<ng-template #emptyCart>
+    You're cart is completly empty! :(
+</ng-template>
