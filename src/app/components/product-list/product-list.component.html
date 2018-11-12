@@ -1,11 +1,6 @@
 <ul class="product-list list-style--none">
   <li *ngFor="let product of products"
       class="product-list-item">
-      <app-product [name]="product.name"
-                 [price]="product.price"
-                 [description]="product.description"
-                 [category]="product.category"
-                 [isAvailable]="product.isAvailable">
-    </app-product>
+      <app-product [product]="product"></app-product>
   </li>
 </ul>

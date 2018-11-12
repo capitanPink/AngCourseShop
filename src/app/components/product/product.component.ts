@@ -1,5 +1,6 @@
-import { Category } from './../../shared/enums/category.enum';
 import { Component, Input } from '@angular/core';
+
+import { IProduct } from './../../shared/interfaces/i-product';
 
 @Component({
   selector: 'app-product',
@@ -8,11 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductComponent {
 
-  @Input() name: string;
-  @Input() description: string;
-  @Input() price: number;
-  @Input() category: Category;
-  @Input() isAvailable: boolean;
+  @Input() product: IProduct;
 
   constructor() { }
 

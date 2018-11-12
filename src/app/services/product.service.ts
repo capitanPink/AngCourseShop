@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { ProductModel } from './../shared/models/Product.model';
 import { Category } from './../shared/enums/category.enum';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
 
   constructor() { }

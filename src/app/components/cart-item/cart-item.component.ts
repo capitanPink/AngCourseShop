@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductComponent } from '../product/product.component';
+import { Component, Input } from '@angular/core';
+
+import { IProduct } from './../../shared/interfaces/i-product';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss']
 })
-export class CartItemComponent extends ProductComponent {
+export class CartItemComponent {
 
-  constructor() {
-    super();
-  }
+  @Input() product: IProduct;
+  
+  constructor() {}
 
 }
