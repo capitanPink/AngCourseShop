@@ -1,0 +1,19 @@
+<div class="cart">
+    <p>
+      <span class="text--bold">Name:</span>
+      {{ cartItem.name }}
+    </p>
+    <p>
+      <span class="text--bold">Price:</span>
+      {{ cartItem.price }}
+    </p>
+    <p>
+      <span class="text--bold">Description:</span>
+      {{ cartItem.description }}
+    </p>
+    <button (click)="deleteFromCart(cartItem)"
+            class="cart__buy-button"
+            mat-raised-button>
+      Delete from cart
+    </button>
+  </div>

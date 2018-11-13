@@ -1,0 +1,16 @@
+.product {
+  border: 1px solid gray;
+  min-width: 250px;
+  margin: 5px;
+  padding: 10px;
+
+  &__buy-button {
+    color: white;
+    background-color: aquamarine;
+  }
+
+  &__no-stock {
+    color: red;
+    font-weight: bold;
+  }
+}

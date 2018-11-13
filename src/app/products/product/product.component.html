@@ -11,11 +11,23 @@
     <span class="text--bold">Description:</span>
     {{ product.description }}
   </p>
-  <p>
+  <p [ngClass]="{'text--green': isPossibleToBuy, 'text--red': !isPossibleToBuy}">
     <span class="text--bold">Available:</span>
-    {{ product.isAvailable }}
+    {{ isPossibleToBuy ? 'In stocks' : 'Not in stocks :c' }}
   </p>
-  <button>
-    Buy
-  </button>
+  <div *ngIf="isPossibleToBuy; then possibleToBuy; else notPossibleToBuy"></div>
 </div>
+
+<ng-template #possibleToBuy>
+  <button class="product__buy-button"
+          (click)="addToCart(product)"
+          mat-raised-button>
+    Add to cart
+  </button>
+</ng-template>
+
+<ng-template #notPossibleToBuy>
+  <p class="product__no-stock">
+    Unable to buy.
+  </p>
+</ng-template>

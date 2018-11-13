@@ -1,0 +1,19 @@
+<div class="cart">
+    <h2 class="cart__title">
+        Your cart! Here what you are going to buy :)
+    </h2>
+    <div class="cart__summery">
+        <p>
+            quantity: {{ cartSummery.quantity }}
+        </p>
+        <p>
+            summery: {{ cartSummery.sum }}
+        </p>
+    </div>
+    <ul class="cart-list list-style--none">
+      <li *ngFor="let cartItem of cart"
+          class="cart-list__item">
+          <app-cart-item [cartItem]="cartItem"></app-cart-item>
+      </li>
+    </ul>
+  </div>
