@@ -20,28 +20,28 @@ export class CartService {
 
   addProduct(product: IProduct): void {
     const newCart = [product].concat(this._cart);
-    this._cartSubject.next(newCart);
-    this._cart = newCart;
-    this._summerySubject.next(this.getTotals(this._cart));
+    this._updateCart(newCart);
   }
 
   getSummery() {
     return this._summerySubject.asObservable();
   }
 
-  getTotals(cart: IProduct[]) {
+  getTotals(cart: IProduct[]): ICartSummery {
     const sum = cart.reduce((acc: number, next: IProduct) => acc + next.price, 0);
     const quantity = cart.reduce((acc: number, next: IProduct) => acc + next.quantity, 0);
-    return {
-      sum,
-      quantity
-    };
+    this._summery = { sum, quantity };
+    return this._summery;
   }
 
   deleteFromCart(product: IProduct): void {
     const newCart = this._cart.filter((item: IProduct) => item.id !== product.id);
+    this._updateCart(newCart);
+  }
+
+  private _updateCart(newCart: IProduct[]): void {
     this._cartSubject.next(newCart);
+    this._summerySubject.next(this.getTotals(newCart));
     this._cart = newCart;
-    this._summerySubject.next(this.getTotals(this._cart));
   }
 }
