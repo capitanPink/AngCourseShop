@@ -4,6 +4,7 @@ import { Size } from 'src/shared/enums/Size.enum';
 
 export interface IProduct {
   id: number;
+  code: number;
   name: string;
   price: number;
   description: string;

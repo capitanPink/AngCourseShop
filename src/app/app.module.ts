@@ -1,3 +1,4 @@
+import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +13,8 @@ import { CartModule } from './cart/cart.module';
   imports: [
     BrowserModule,
     ProductsModule,
-    CartModule
+    CartModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
