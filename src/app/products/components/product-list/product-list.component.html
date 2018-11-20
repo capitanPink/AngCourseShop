@@ -1,0 +1,22 @@
+<div class="products">
+<ul *ngIf="products.length"
+    class="product-list">
+    <li *ngFor="let product of getProducts() | async | orderBy : filter"
+        class="product-list__item">
+      <app-product [product]="product"></app-product>
+    </li>
+</ul>
+<p class="product-list__date">
+  {{ today | date :'short'}}
+</p>
+
+<div class="products__sort">
+  Sort products:
+    <select (change)="onSortChange($event.target.value)" name="sort">
+      <option value=""></option>
+      <option value="name">name</option>
+      <option value="quantity">quantity</option>
+      <option value="price">price</option>
+    </select>
+</div>
+</div>
